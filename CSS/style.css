@@ -1,76 +1,156 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#f4f6f9;
-    color:#333;
+:root {
+    --primary: #4F46E5;      /* Indigo / Violet moderne */
+    --secondary: #6366F1;
+    --accent: #22D3EE;       /* Cyan pour accents tech */
+    --dark: #0F172A;
+    --light: #F8FAFC;
+    --gray: #64748B;
 }
 
-header{
-    background:#1e3a8a;
-    color:white;
-    text-align:center;
-    padding:25px;
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%);
+    color: var(--light);
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-header p{
-    margin-top:10px;
-    color:#dbeafe;
+header {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    color: white;
+    text-align: center;
+    padding: 60px 20px 50px;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:40px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+header h1 {
+    font-size: 3.2rem;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, #6366F1, #22D3EE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
+header p {
+    font-size: 1.3rem;
+    color: #94A3B8;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
 }
 
-.card h2{
-    color:#1e3a8a;
-    margin-bottom:15px;
+/* Cards modernes */
+.card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
 }
 
-.card p{
-    margin-bottom:20px;
-    line-height:1.6;
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    opacity: 0.8;
 }
 
-.btn{
-    display:inline-block;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    padding:10px 20px;
-    border-radius:8px;
-    transition:0.3s;
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+                0 10px 10px -5px rgba(79, 70, 229, 0.2);
+    border-color: rgba(99, 102, 241, 0.4);
 }
 
-.btn:hover{
-    background:#1d4ed8;
+.card h2 {
+    color: white;
+    font-size: 1.55rem;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-footer{
-    background:#1e3a8a;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:50px;
+.card h2 span {
+    font-size: 1.8rem;
+}
+
+.card p {
+    color: #CBD5E1;
+    margin-bottom: 24px;
+    font-size: 1.05rem;
+}
+
+/* Bouton moderne */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.4);
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+/* Footer */
+footer {
+    background: rgba(15, 23, 42, 0.98);
+    color: #94A3B8;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+footer p {
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.6rem;
+    }
+    
+    .container {
+        grid-template-columns: 1fr;
+        margin: 30px auto;
+    }
+    
+    .card {
+        padding: 28px;
+    }
 }
