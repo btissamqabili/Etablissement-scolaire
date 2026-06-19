@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$dbname = "ecole_db";
+$dbname = "gestion_scolaire";
 $user = "root";
 $password = "";
 
